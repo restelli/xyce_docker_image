@@ -1,0 +1,7 @@
+#!/bin/bash
+# Next command is with sudo to avoid
+sudo echo "Welcome to the Xyce environment"
+echo " You are entering the interactive shell."
+echo "To invoke Xyce simply run:"
+echo "Xyce netlist.cir"
+cd /home/xyce

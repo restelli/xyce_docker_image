@@ -1,0 +1,7 @@
+#!/bin/sh
+../Xyce/configure --prefix=/home/xyce/Xyce_7.2 \
+--enable-shared \
+--enable-xyce-shareable \
+CXXFLAGS="-O3 -std=c++11" \
+ARCHDIR="/home/xyce/XyceLibs/Serial" \
+CPPFLAGS="-I/usr/include/suitesparse"
