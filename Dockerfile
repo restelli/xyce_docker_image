@@ -72,7 +72,7 @@ make && \
 make install
 
 
-RUN echo "Compiling ADMS to be able to integrate the verilog-A modules in Xyce"
+RUN echo "Compiling ADMS to be able to integrate the verilog-A modules in Xyce" && \
 cd /home/xyce && \
 git clone -b release-2.3.6 https://github.com/Qucs/ADMS.git && \
 cd ADMS && \

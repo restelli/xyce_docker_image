@@ -19,8 +19,6 @@ docker run \
 
 
 
-
-
 ## On Windows
 
 A complete guide to install Docker on Windows can be found on [this link](https://docs.docker.com/docker-for-windows/install/).
