@@ -5,3 +5,4 @@ echo " You are entering the interactive shell."
 echo "To invoke Xyce simply run:"
 echo "Xyce netlist.cir"
 cd /home/xyce
+bash

@@ -49,7 +49,6 @@ usermod -aG sudo xyce
 
 ADD build_scripts/config_xyce /home/xyce/build_xyce/config_xyce
 ADD build_scripts/config_trilinos /home/xyce/build_trilinos/config_trilinos
-ADD initialize /home/xyce/.initialize
 
 RUN cd /home/xyce && \
 git clone -b Release-7.2.0 https://github.com/Xyce/Xyce.git && \
@@ -82,7 +81,7 @@ make install
 
 
 
-
+ADD initialize /home/xyce/.initialize
 USER xyce
 
 ENV PATH $PATH:/home/xyce/Xyce_7.2/bin
