@@ -1,21 +1,33 @@
-# Dockerfile to run Xyce of Win 10, Linux and OS X
+# Dockerfile to run Xyce on Win 10, Linux and OS X
 
-# How to build
+This Dockerfile builds the following packages:
+
+| Name     |  Release | Source repo                | Description|
+|----------|----------|----------------------------|-----|
+|  Xyce serial    |   7.2.0  | https://github.com/Xyce/Xyce | Circuit simulator
+|  ADMS    |   2.3.6  | https://github.com/Qucs/ADMS.git                           | Verilog A compiler
+|  xdm_bdl |   2.2.0  |    https://github.com/Xyce/XDM                        | converts netlists to xyce format
+
+
+## Usage
+
+### How to build
 ```
 docker build -t xyce_il .
 ```
 
-# How to run interactive shell giving access to current folder
+### How to run interactive shell giving access to current folder
 ```
 docker run \
-    --mount type=bind,source="$(pwd)"/shared,target=/home/xyce/shared \
+    --mount type=bind,source="$(pwd)",target=/home/xyce/shared \
     -it \
     --rm \
     --name xyce_test \
     --net=host \
-    xyce_test
+    xyce_il
 
 ```
+
 
 
 

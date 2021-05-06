@@ -80,11 +80,29 @@ sh bootstrap.sh && \
 make install
 
 
+ADD build_scripts/config_XDM /home/xyce/build_XDM/config_XDM
 
-ADD initialize /home/xyce/.initialize
+RUN echo "Compiling XDM, the netlist translator for Xyce" && \
+apt-get install -y python3.8 && \
+ln -s /usr/bin/python3.8 /usr/bin/python && \
+sudo apt-get install -y software-properties-common && \
+apt-get install -y python3-dev python3-pip python3-tk python3-lxml python3-six && \
+pip3 install pyinstaller && \
+apt-get install -y libboost-python-dev && \
+cd /home/xyce && \
+git clone -b Release-2.2.0 https://github.com/Xyce/XDM.git && \
+cd /home/xyce/build_XDM && \
+chmod +x config_XDM && \
+./config_XDM && \
+cmake --build . --config Release --target package
+
+
 USER xyce
 
-ENV PATH $PATH:/home/xyce/Xyce_7.2/bin
+ADD initialize /home/xyce/.initialize
+
+
+ENV PATH $PATH:/home/xyce/Xyce_7.2/bin:/home/xyce/build_XDM/xdm_bundle/dist/
 ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/local/lib
 ENV DISPLAY ':1'
 ENV HOME /home/xyce
