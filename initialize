@@ -7,4 +7,6 @@ echo "Xyce netlist.cir"
 echo "The command xdm_bdl can be used to convert netlists of different types"
 echo " into xyce netlists."
 cd /home/xyce
+mkdir shared
+cd shared
 bash
